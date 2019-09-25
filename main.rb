@@ -50,34 +50,40 @@ class Board
         board=[];
         for i in 0...grid_size do
             board.push(["",""])
-        end
-        puts "Player X turn"
-        puts "Enter the mark at available Array index [][]"
-        row= (gets.chomp).to_i
-        col= (gets.chomp).to_i       
-        puts "Player selected #{row}"+" "+"#{col} index" 
-        puts "Current Player selected is  "+self.getCurrentPlayer
-        board[row][col]=self.getCurrentPlayer
+        end          
+        a=1
+        while(a<=grid_size*grid_size)
+            puts
+            puts "Player X turn"
+            puts "Enter the mark at available Array index [][]"
+            row= (gets.chomp).to_i
+            col= (gets.chomp).to_i
+            puts "Player selected #{row}"+" "+"#{col} index" 
+            puts "Current Player selected is  "+self.getCurrentPlayer
+            board[row][col]=self.getCurrentPlayer
+
+            for x in 0...grid_size do
+                for y in 0...grid_size do
+                    print board[x][y]
+                    if (y != grid_size-1) 
+                        print "  |   "
+                    end
+                end
         
-        for x in 0...grid_size do
-            for y in 0...grid_size do
-                print board[x][y]
-                if (y != grid_size-1) 
-                    print "  |   "
+                if (x != grid_size-1)
+                    print "\n"
+                    for i in 0...(grid_size + (grid_size * 3)) do
+                        print "="
+                    end
+                    print "\n"
+                else 
+                    print "\n"
                 end
             end
-       
-            if (x != grid_size-1)
-                print "\n"
-                for i in 0...(grid_size + (grid_size * 3)) do
-                    print "="
-                end
-                print "\n"
-            else 
-                print "\n"
-            end
-        end
-                      
+            puts
+            a=a+1
+            puts a
+        end  # while loop              
     end 
 end
 
