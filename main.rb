@@ -54,7 +54,13 @@ class Board
         a=1
         while(a<=grid_size*grid_size)
             puts
-            puts "Player X turn"
+            if(a%2!=0)
+                puts "Player X turn"
+                 self.setCurrentPlayer="X"
+            else 
+                puts "Player 0 turn"
+                self.setCurrentPlayer="0"
+            end
             puts "Enter the mark at available Array index [][]"
             row= (gets.chomp).to_i
             col= (gets.chomp).to_i
@@ -80,9 +86,7 @@ class Board
                     print "\n"
                 end
             end
-            puts
             a=a+1
-            puts a
         end  # while loop              
     end 
 end
